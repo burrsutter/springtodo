@@ -1,4 +1,4 @@
-package com.burrsutter.seattle;
+package com.burrsutter.springtodo;
 
 import io.quarkus.test.junit.SubstrateTest;
 

@@ -33,14 +33,14 @@ public class TodoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<Todo> create(@RequestBody @Valid Todo item) {
+    public ResponseEntity<Todo> addOne(@RequestBody @Valid Todo item) {
         todoRepository.save(item);
         return ResponseEntity.status(HttpStatus.CREATED).body(item);
     }
 
     @PatchMapping("/{id}")
     @Transactional
-    public ResponseEntity<Todo>  update(@RequestBody @Valid Todo item, @PathVariable("id") Long id) {
+    public ResponseEntity<Todo>  updateOne(@RequestBody @Valid Todo item, @PathVariable("id") Long id) {
         if (todoRepository.existsById(id)) {
             todoRepository.setUpdated(id, item.completed, item.title);
             return ResponseEntity.ok(item);
